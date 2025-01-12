@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <title>Guru Wali Kelas</title>
+    <link rel="stylesheet" href="/css/dashboard-admin.css">
+    <link rel="stylesheet" href="/css/data-pegawai.css">
+    <link rel="stylesheet" href="/css/mata-pelajaran.css">
+    <link rel="stylesheet" href="/css/kelas.css">
+    <link rel="stylesheet" href="/css/dataWaliKelas.css">
+    <link rel="stylesheet" href="/css/absensi.css">
+    <link rel="stylesheet" href="/css/pop-up-menu.css">
+
+
+
+    <!-- SweetAlert2 CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+    <!-- SweetAlert2 JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+</head>
+
+<body>
+    <header>
+        <h1>Guru Wali Kelas</h1>
+        <div class="profile">
+            <i class="fas fa-user-circle" id="profile-icon"></i> <!-- ID untuk ikon -->
+            <span id="employee-name-header" class="employee-name">Tamu</span>
+        </div>
+        <div id="profile-menu" class="profile-menu">
+            <ul>
+                <li><a href="/reset-password-after-login">Ubah Kata Sandi</a></li>
+                <li><a href="/login">Keluar</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <div class="dashboard">
+        <aside class="sidebar">
+            <ul>
+                <li><a href="#" data-target="guru-matpel-profile">Profil</a></li>
+                <li><a href="#" data-target="persetujuan-nilai">Persetujuan Nilai Siswa</a></li>
+                <li><a href="#" data-target="absensi-siswa">Data Absen Siswa</a></li>
+
+            </ul>
+        </aside>
+        <main>
+            <div class="welcome-message">
+                <h2>Selamat Datang, <span id="employee-name-message" class="employee-name">Tamu</span></h2>
+            </div>
+            <section id="guru-matpel-profile" class="content-section hidden">
+                <div class="profile-container">
+                    <div class="profile-picture">
+                        <!-- Menampilkan huruf pertama dari nama pengguna -->
+                        <span id="profile-initial">T</span>
+                    </div>
+                    <hr class="profile-divider">
+                    <div class="profile-details">
+                        <div class="bio-item">
+                            <strong>Nama</strong> <span id="biodata-name">Tidak tersedia</span>
+                        </div>
+                        <div class="bio-item">
+                            <strong>Tempat, Tanggal Lahir</strong> <span id="biodata-ttl">Tidak tersedia</span>
+                        </div>
+                        <div class="bio-item">
+                            <strong>NIP</strong> <span id="biodata-nip">Tidak tersedia</span>
+                        </div>
+                        <div class="bio-item">
+                            <strong>Jabatan</strong> <span id="biodata-role">Tidak tersedia</span>
+                        </div>
+                        <div class="bio-item">
+                            <strong>NIK</strong> <span id="biodata-nik">Tidak tersedia</span>
+                        </div>
+                        <div class="bio-item">
+                            <strong>Tanggal Mulai Tugas</strong> <span id="biodata-tmt">Tidak tersedia</span>
+                        </div>
+                        <div class="bio-item">
+                            <strong>Jenjang Pendidikan</strong> <span id="biodata-jp">Tidak tersedia</span>
+                        </div>
+                        <div class="bio-item">
+                            <strong>Jurusan</strong> <span id="biodata-jurusan">Tidak tersedia</span>
+                        </div>
+                        <div class="bio-item">
+                            <strong>Golongan</strong> <span id="biodata-golongan">Tidak tersedia</span>
+                        </div>
+                        <div class="bio-item">
+                            <strong>NUPTK</strong> <span id="biodata-nuptk">Tidak tersedia</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section id="persetujuan-nilai" class="content-section hidden">
+                <h2>Persetujuan Nilai Siswa</h2>
+
+                <!-- Menampilkan Info Kelas -->
+                <div id="info-kelas">
+                    <!-- Data kelas akan ditampilkan di sini -->
+                </div>
+                <div class="filter-wrapper">
+                    <select id="mapel-filter">
+                        <option value="">Pilih Mata Pelajaran</option>
+                    </select>
+                </div>
+                <table id="nilaiTable">
+                    <thead>
+                        <tr>
+                            <th>NISN</th>
+                            <th>Nama Siswa</th>
+                            <th>UTS</th>
+                            <th>UAS</th>
+                            <th>Tugas</th>
+                            <th>Nilai Akhir</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="nilai-tbody">
+                        <!-- Data akan ditambahkan di sini -->
+                    </tbody>
+                </table>
+                <div id="button-container" style="text-align: right; margin-top: 10px;">
+                    <button id="setujui-semua" style="display: none;">Setujui Semua</button>
+                </div>
+
+
+
+
+            </section>
+
+            <section id="absensi-siswa" class="content-section hidden">
+                <h2>Data Absensi Siswa</h2>
+
+                <div id="kelas-header"></div>
+
+                <div class="search-add-container">
+                    <div class="search-wrapper">
+                        <input type="text" id="search-siswa" placeholder="Cari siswa..." class="search-bar">
+                        <i class="fas fa-search search-icon"></i>
+                    </div>
+                    <button id="save-button" data-mode="save" class="btn-save">Simpan</button>
+                    <button id="cancel-button" class="btn-cancel" style="display: none;">Batal</button>
+                    
+                </div>
+
+                <table border="1" id="siswa-container">
+                    <thead>
+                        <tr>
+                            <th>No</th>
+                            <th>Nama</th>
+                            <th>NISN</th>
+                            <th>
+                                Hadir <br>
+                            </th>
+                            <th>
+                                Izin <br>
+                            </th>
+                            <th>
+                                Sakit <br>
+                            </th>
+                            <th>
+                                Alpa <br>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody id="siswa-tbody-absensi">
+                    </tbody>
+                </table>
+            </section>
+        </main>
+    </div>
+    <script src="/js/dashboardWaliKelas.js"></script>
+    <script src="/js/persetujuanNilaiSiswa.js"></script>
+    <script src="/js/data-absensi.js"></script>
+    <script src="/js/pop-up-menu.js"></script>
+
+</body>
+
+</html>

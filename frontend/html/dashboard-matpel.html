@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guru Matpel</title>
+</head>
+
+<body>
+    <!DOCTYPE html>
+    <html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+        <title>Guru Mata Pelajaran</title>
+        <link rel="stylesheet" href="/css/dashboard-admin.css">
+        <link rel="stylesheet" href="/css/data-pegawai.css">
+        <link rel="stylesheet" href="/css/mading.css">
+        <link rel="stylesheet" href="/css/mata-pelajaran.css">
+        <link rel="stylesheet" href="/css/kelas.css">
+        <link rel="stylesheet" href="/css/dataNilai.css">
+        <link rel="stylesheet" href="/css/pop-up-menu.css">
+
+
+
+        <!-- SweetAlert2 CSS -->
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+        <!-- SweetAlert2 JavaScript -->
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    </head>
+
+    <body>
+        <header>
+            <h1>Guru Mata Pelajaran</h1>
+            <div class="profile">
+                <i class="fas fa-user-circle" id="profile-icon"></i> <!-- ID untuk ikon -->
+                <span id="employee-name-header" class="employee-name">Tamu</span>
+            </div>
+            <div id="profile-menu" class="profile-menu">
+                <ul>
+                    <li><a href="/reset-password-after-login">Ubah Kata Sandi</a></li>
+                    <li><a href="/login">Keluar</a></li>
+                </ul>
+            </div>
+        </header>
+
+        <div class="dashboard">
+            <aside class="sidebar">
+                <ul>
+                    <li><a href="#" data-target="guru-matpel-profile">Profil</a></li>
+                    <li><a href="#" data-target="data-nilai-siswa">Data Nilai Siswa</a></li>
+                </ul>
+            </aside>
+            <main>
+                <div class="welcome-message">
+                    <h2>Selamat Datang, <span id="employee-name-message" class="employee-name">Tamu</span></h2>
+                </div>
+                <section id="guru-matpel-profile" class="content-section hidden">
+                    <div class="profile-container">
+                        <div class="profile-picture">
+                            <!-- Menampilkan huruf pertama dari nama pengguna -->
+                            <span id="profile-initial">T</span>
+                        </div>
+                        <hr class="profile-divider">
+                        <div class="profile-details">
+                            <div class="bio-item">
+                                <strong>Nama</strong> <span id="biodata-name">Tidak tersedia</span>
+                            </div>
+                            <div class="bio-item">
+                                <strong>Tempat, Tanggal Lahir</strong> <span id="biodata-ttl">Tidak tersedia</span>
+                            </div>
+                            <div class="bio-item">
+                                <strong>NIP</strong> <span id="biodata-nip">Tidak tersedia</span>
+                            </div>
+                            <div class="bio-item">
+                                <strong>Jabatan</strong> <span id="biodata-role">Tidak tersedia</span>
+                            </div>
+                            <div class="bio-item">
+                                <strong>NIK</strong> <span id="biodata-nik">Tidak tersedia</span>
+                            </div>
+                            <div class="bio-item">
+                                <strong>Tanggal Mulai Tugas</strong> <span id="biodata-tmt">Tidak tersedia</span>
+                            </div>
+                            <div class="bio-item">
+                                <strong>Jenjang Pendidikan</strong> <span id="biodata-jp">Tidak tersedia</span>
+                            </div>
+                            <div class="bio-item">
+                                <strong>Jurusan</strong> <span id="biodata-jurusan">Tidak tersedia</span>
+                            </div>
+                            <div class="bio-item">
+                                <strong>Golongan</strong> <span id="biodata-golongan">Tidak tersedia</span>
+                            </div>
+                            <div class="bio-item">
+                                <strong>NUPTK</strong> <span id="biodata-nuptk">Tidak tersedia</span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section id="data-nilai-siswa" class="content-section hidden">
+                    <h2>Data Nilai Siswa</h2>
+                    <div class="note-card">
+                        <div class="note-icon">!</div>
+                        <div id="note-tahun-ajaran" class="note-text">
+                            Silahkan filter tahun ajaran, kelas, mata pelajaran, dan jenis nilai terlebih dahulu.
+                        </div>
+                    </div>
+                    <div class="filter-wrapper">
+                        <select id="tahun-ajaran-filter">
+                            <!-- Opsi akan dimuat dari JavaScript -->
+                        </select>
+                       
+                    </div>
+
+                    <div class="filter-wrapper">
+                        <select id="kelas-filter">
+                            <option value="">Pilih Kelas</option>
+                        </select>
+                    </div>
+                    <div class="filter-wrapper">
+                        <select id="mapel-filter">
+                            <option value="">Pilih Mata Pelajaran</option>
+                        </select>
+                    </div>
+                    <div class="filter-wrapper">
+                        <select id="jenis-nilai-filter" onchange="filterGrades()">
+                            <option value="">Pilih Jenis Nilai</option>
+                            <option value="uts">UTS</option>
+                            <option value="uas">UAS</option>
+                            <option value="tugas">Tugas</option>
+                            <option value="nilai-akhir">Nilai Akhir</option>
+                        </select>
+                    </div>
+
+                    <table id="siswa-table">
+                        <thead>
+                            <tr id="header-row">
+                                <th>NISN</th>
+                                <th>Nama Siswa</th>
+                                <th id="nilai-header" style="display: none;">Nilai</th>
+                                <th id="uts-header" style="display: none;">UTS</th>
+                                <th id="uas-header" style="display: none;">UAS</th>
+                                <th id="tugas-header" style="display: none;">Tugas</th>
+                                <th id="nilai-akhir-header" style="display: none;">Nilai Akhir</th>
+                                <th id="grade-status-header" style="display: none;">Status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="siswa-tbody">
+                            <!-- Data siswa akan ditambahkan di sini -->
+                        </tbody>
+                    </table>
+                </section>
+
+            </main>
+        </div>
+        <script src="/js/dashboardGuruMatpel.js"></script>
+        <script src="/js/dataNilaiSiswa.js"></script>
+        <script src="/js/pop-up-menu.js"></script>
+
+    </body>
+
+    </html>
+
+
+</body>
+
+</html>

@@ -1,0 +1,114 @@
+.filter-wrapper {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* Label filter */
+.filter-wrapper label {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+}
+
+/* Style untuk select box */
+#tahun-ajaran-filter {
+    padding: 10px;
+    font-size: 14px;
+    font-weight: 500;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    width: 200px;
+    transition: all 0.3s ease;
+}
+
+/* Gaya hover pada select */
+#tahun-ajaran-filter:hover {
+    border-color: #004D40;
+    background-color: #e9f7ff;
+}
+
+/* Gaya ketika select dalam fokus */
+#tahun-ajaran-filter:focus {
+    border-color: #004D40;
+    outline: none;
+    background-color: #fff;
+}
+
+
+label {
+    font-size: 14px;
+    color: #495057;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+/* Input styling */
+.swal2-input {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    box-sizing: border-box;
+    font-size: 16px;
+    background-color: #ffffff;
+}
+
+/* Styling untuk dropdown */
+.swal2-select {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid #ced4da;
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: white;
+}
+/* Card Style */
+.note-card {
+    border-radius: 8px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    font-family: Arial, sans-serif;
+}
+
+/* Tanda Seru Icon */
+.note-icon {
+    background-color: #004D40;
+    color: white;
+    font-weight: bold;
+    font-size: 24px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 15px;
+}
+
+/* Teks dalam Card */
+.note-text {
+    color: #004D40;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+/* Filter wrapper */
+.filter-wrapper {
+    margin-top: 20px;
+}
+
+/* Styling Select Dropdown */
+#tahun-ajaran-filter {
+    padding: 8px 12px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+}
+

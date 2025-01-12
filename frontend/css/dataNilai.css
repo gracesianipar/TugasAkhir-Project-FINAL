@@ -1,0 +1,185 @@
+.filter-wrapper {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* label filter */
+.filter-wrapper label {
+    font-size: 16px;
+    font-weight: 600;
+    color: #333;
+}
+
+/* untuk select box */
+#mapel-filter {
+    padding: 10px;
+    font-size: 14px;
+    font-weight: 500;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    width: 200px;
+    transition: all 0.3s ease;
+}
+
+/* hover pada select */
+#mapel-filter:hover {
+    border-color: #007bff;
+    background-color: #e9f7ff;
+}
+
+/* ketika select dalam fokus */
+#mapel-filter:focus {
+    border-color: #007bff;
+    outline: none;
+    background-color: #fff;
+}
+
+label {
+    font-size: 14px;
+    color: #495057;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+#jenis-nilai-filter {
+    padding: 10px;
+    font-size: 14px;
+    font-weight: 500;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    width: 200px;
+    transition: all 0.3s ease;
+}
+
+/* hover pada select */
+#jenis-nilai-filter:hover {
+    border-color: #007bff;
+    background-color: #e9f7ff;
+}
+
+/* ketika select dalam fokus */
+#jenis-nilai-filter:focus {
+    border-color: #007bff;
+    outline: none;
+    background-color: #fff;
+}
+
+#button-container button {
+    background-color: transparent;
+    color: #004D40;
+    border: 2px solid #004D40;
+    padding: 5px 10px;
+    border-radius: 3px;
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#button-container button:hover {
+    background-color: #004D40;
+    color: white;
+}
+
+#button-container {
+    text-align: right;
+    margin-bottom: 10px;
+}
+
+/* menata kolom berdasarkan jenis nilai */
+td[class^="column-"] {
+    padding: 5px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+/* menata input di dalam sel */
+input[type="number"] {
+    padding: 3px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 12px;
+    text-align: center;
+    width: auto; 
+    transition: all 0.2s ease; 
+}
+
+/* memberikan efek hover pada input */
+input[type="number"]:hover {
+    border-color: #66afe9;
+    background-color: #f4faff;
+}
+
+/* memberikan efek focus pada input */
+input[type="number"]:focus {
+    outline: none;
+    border-color: #4CAF50;
+    background-color: #e8f5e9;
+}
+
+/* placeholder input */
+input[type="number"]::placeholder {
+    color: #888;
+    font-style: italic;
+}
+
+/* untuk mengatur kelihatan sejajar atau satu baris pilih matpel dengan button setuju */
+.filter-wrapper, #button-container {
+    display: inline-flex;
+    align-items: center;
+}
+
+.filter-wrapper {
+    flex: 1;
+}
+
+#button-container {
+    margin-left: 10px;
+}
+
+/* untuk tabel */
+#nilaiTable {
+    width: 100%;
+    border-collapse: collapse; 
+    margin-top: 20px;
+    font-family: 'Arial', sans-serif; 
+    font-size: 14px; 
+}
+
+/* untuk header tabel */
+#nilaiTable th {
+    background-color: #004D40;
+    color: white;
+    padding: 12px 15px;
+    text-align: center;
+    font-size: 16px; 
+    font-weight: bold; 
+}
+
+/* untuk isi tabel */
+#nilaiTable td {
+    background-color: #f9f9f9;
+    text-align: center;
+    padding: 12px 15px;
+    border: 1px solid #ddd; 
+    font-size: 14px; 
+    font-family: 'Inter', sans-serif; 
+}
+
+/* untuk baris tabel yang dihover */
+#nilaiTable tr:hover {
+    background-color: #e0f7fa;
+}
+
+/* untuk baris genap dengan latar belakang berbeda */
+#nilaiTable tr:nth-child(even) td {
+    background-color: #f1f1f1;
+}
+
+/* untuk kolom status */
+#nilaiTable td:last-child {
+    font-size: 14px; 
+}

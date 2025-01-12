@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Atur Ulang Kata Sandi</title>
+  <link rel="stylesheet" href="/css/sandi.css">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+</head>
+
+<body>
+  <div class="reset-password-container">
+    <h2>Atur Ulang Kata Sandi <span id="role"><%= role %></span> SMP IT Al Wasliyah 20 Medan</h2>
+
+    <form id="resetPasswordForm">
+      <label for="newPassword">Kata Sandi Baru</label>
+      <input type="password" id="newPassword" name="newPassword" required>
+
+      <label for="confirmPassword">Konfirmasi Sandi Baru</label>
+      <input type="password" id="confirmPassword" name="confirmPassword" required>
+
+      <button type="submit">Atur Ulang Kata Sandi</button>
+    </form>
+  </div>
+
+  <script src="/js/sandi-stlh-login.js"></script>
+
+</body>
+</html>
