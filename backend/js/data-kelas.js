@@ -142,8 +142,10 @@ document.getElementById('search-subject-input').addEventListener('input', functi
     searchKelas(searchQuery, filterTahunAjaran); // Panggil fungsi pencarian dengan query pencarian dan filter tahun ajaran
 });
 
+let kelasData = {}
+
 document.getElementById('add-kelas-btn').addEventListener('click', function () {
-    console.log(kelasData.pegawai_id);   
+    console.log(kelasData?.pegawai_id || 'kelasData belum tersedia');    
      Promise.all([
         fetch('/api/pegawai'), // Sesuaikan URL dengan API pegawai Anda
         fetch('/api/tahun-ajaran') // Sesuaikan URL dengan API tahun ajaran Anda

@@ -1,8 +1,11 @@
 document.getElementById('resetPasswordForm').addEventListener('submit', async function (event) {
   event.preventDefault();
 
-  const role = document.getElementById('role').innerText; 
-  const email = document.getElementById('email').innerText; 
+  const role = document.getElementById('role').innerText.trim();
+  console.log("Role yang dikirim ke server:", role);
+
+  const email = document.getElementById('email').innerText.trim();
+  console.log("Email yang dikirim ke server:", email);
 
   const newPassword = document.getElementById('newPassword').value;
   const confirmPassword = document.getElementById('confirmPassword').value;
@@ -28,12 +31,13 @@ document.getElementById('resetPasswordForm').addEventListener('submit', async fu
     });
 
     const data = await response.json();
+    console.log("Response dari server:", data);
 
-if (data.success) {
-  alert('Password berhasil diubah');
-} else {
-  alert(data.message);
-}
+    if (data.success) {
+      alert('Password berhasil diubah');
+    } else {
+      alert(data.message);
+    }
 
   } catch (error) {
     console.error('Error:', error);

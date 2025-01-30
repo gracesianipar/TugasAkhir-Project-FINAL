@@ -6,12 +6,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-    <title>Admin Dashboard</title>
+    <title>Kepala Sekolah Dashboard</title>
     <link rel="stylesheet" href="/css/dashboard-admin.css">
     <link rel="stylesheet" href="/css/data-pegawai.css">
     <link rel="stylesheet" href="/css/mading.css">
     <link rel="stylesheet" href="/css/mata-pelajaran.css">
     <link rel="stylesheet" href="/css/kelas.css">
+    <link rel="stylesheet" href="/css/pop-up-menu.css">
 
 
     <!-- SweetAlert2 CSS -->
@@ -23,10 +24,16 @@
 
 <body>
     <header>
-        <h1>Admin Dashboard</h1>
+        <h1>Kepala Sekolah Dashboard</h1>
         <div class="profile">
             <i class="fas fa-user-circle" id="profile-icon"></i> <!-- ID untuk ikon -->
             <span id="employee-name-header" class="employee-name">Tamu</span>
+        </div>
+        <div id="profile-menu" class="profile-menu">
+            <ul>
+                <li><a href="/reset-password-after-login">Ubah Kata Sandi</a></li>
+                <li><a href="/login">Keluar</a></li>
+            </ul>
         </div>
     </header>
 
@@ -254,7 +261,7 @@
     <script src="/js/kelasInKepsekDashboard.js"></script>
     <script src="/js/mapelInkepsekDashboard.js"></script>
     <script src="/js/madingInKepsekDashboard.js"></script>
-
+    <script src="/js/pop-up-menu.js"></script>
 
 </body>
 
