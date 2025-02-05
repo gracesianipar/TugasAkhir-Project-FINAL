@@ -21,26 +21,29 @@ document.getElementById('resetPasswordForm').addEventListener('submit', async fu
   }
 
   try {
-    // mengirim data ke server untuk reset (mengatur ulang) sandi
     const response = await fetch(`/reset-password/${role}`, {
-      method: 'PUT',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({ email, newPassword, confirmPassword })
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, newPassword, confirmPassword })
     });
 
     const data = await response.json();
     console.log("Response dari server:", data);
 
-    if (data.success) {
-      alert('Password berhasil diubah');
-    } else {
-      alert(data.message);
-    }
+    Swal.fire({
+        icon: data.success ? 'success' : 'error',
+        title: data.success ? 'Berhasil!' : 'Gagal!',
+        text: data.success ? 'Password berhasil diubah' : data.message,
+        confirmButtonColor: data.success ? '#3085d6' : '#d33',
+    });
 
-  } catch (error) {
+} catch (error) {
     console.error('Error:', error);
-    alert('An error occurred. Please try again.');
-  }
+    Swal.fire({
+        icon: 'error',
+        title: 'Terjadi Kesalahan!',
+        text: 'Terjadi kesalahan. Silakan coba lagi.',
+        confirmButtonColor: '#d33',
+    });
+}
 });

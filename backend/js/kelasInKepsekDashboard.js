@@ -117,11 +117,6 @@ function searchKelas(searchQuery, filterTahunAjaran = '') {
                     <td>${kelas.nip} - ${kelas.nama_pegawai || 'Nama Pegawai Tidak Ada'}</td>
                     <td>${kelas.tingkatan}</td>
                     <td><a href="#" class="detail-link"  data-id-kelas="${kelas.id}">Detail</a></td>
-
-                    <td>
-                        <button class="edit-button-kelas" data-id-kelas="${kelas.id}">Edit</button>
-                        <button class="delete-button-kelas" data-id-kelas="${kelas.id}">Delete</button>
-                    </td>
                 `;
                 tbody.appendChild(row);
             });
@@ -132,13 +127,13 @@ function searchKelas(searchQuery, filterTahunAjaran = '') {
             tbody.innerHTML = '<tr><td colspan="6">Terjadi kesalahan saat memuat data</td></tr>';
         });
 }
+
 // Event listener untuk input pencarian
 document.getElementById('search-subject-input').addEventListener('input', function () {
-    const searchQuery = this.value.trim(); // Ambil nilai dari input pencarian
-    const filterTahunAjaran = document.getElementById('kelas-filter').value; // Ambil filter tahun ajaran
-    searchKelas(searchQuery, filterTahunAjaran); // Panggil fungsi pencarian dengan query pencarian dan filter tahun ajaran
+    const searchQuery = this.value.trim(); // mengambil nilai dari input pencarian
+    const filterTahunAjaran = document.getElementById('kelas-filter').value; // mengambil filter tahun ajaran
+    searchKelas(searchQuery, filterTahunAjaran); // memanggil fungsi pencarian dengan query pencarian dan filter tahun ajaran
 });
-
 
 document.getElementById("kelas-tbody").addEventListener('click', (event) => {
     if (event.target.classList.contains('detail-link')) {
